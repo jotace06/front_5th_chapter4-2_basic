@@ -9,7 +9,7 @@ https://front-5th-chapter4-2-basic-blue.vercel.app/
 `이미지 최적화`
 
 - WebP 포맷 적용: JPEG → WebP로 변경하여 1,027 KiB 절약
-- 반응형 이미지: <picture> 태그로 디바이스별 최적화된 이미지 제공
+- 반응형 이미지: `<picture>` 태그로 디바이스별 최적화된 이미지 제공
 - 지연 로딩: loading="lazy" 추가로 초기 페이지 로드 속도 향상
 
 `리소스 로딩 최적화`
