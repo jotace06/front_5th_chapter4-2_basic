@@ -37,11 +37,9 @@ https://front-5th-chapter4-2-basic-blue.vercel.app/
 - Transform 기반 애니메이션: GPU 가속 활용
 - Transition 추가: 부드러운 사용자 인터랙션
 
-###
-
 ### 🎯 Lighthouse 점수
 
-<div style={{ display: "flex", alignItems: "center" }}>
+<div>
 <img width="188" alt="Image" src="https://github.com/user-attachments/assets/b3bead4d-54a7-49d8-8ea2-fc9294738362" />
 ➡️
 <img width="192" alt="Image" src="https://github.com/user-attachments/assets/6336d7ee-1329-464e-9fbf-fdb7e48b88f4" />
