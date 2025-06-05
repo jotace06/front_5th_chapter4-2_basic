@@ -43,13 +43,13 @@ https://front-5th-chapter4-2-basic-blue.vercel.app/
 
 <div>
 <img width="188" alt="Image" src="https://github.com/user-attachments/assets/b3bead4d-54a7-49d8-8ea2-fc9294738362" />
-
+➡️
 <img width="192" alt="Image" src="https://github.com/user-attachments/assets/6336d7ee-1329-464e-9fbf-fdb7e48b88f4" />
 </div>
   
  ### 📊 Core Web Vitals (2024)
 <div>
 <img width="305" alt="Image" src="https://github.com/user-attachments/assets/cf72c92d-57df-4ee8-a996-12579198ce48" />
-
+➡️
 <img width="299" alt="Image" src="https://github.com/user-attachments/assets/bbc783ee-dc72-4593-a29e-1747a7613f12" />
 </div>
