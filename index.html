@@ -1,16 +1,46 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
+
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://fakestoreapi.com" />
+
+    <!-- Optimized Google Fonts loading with font-display swap -->
     <link
       href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="/css/styles.css" as="style" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
+
+    <!-- Preload hero image for faster LCP -->
+    <link
+      rel="preload"
+      as="image"
+      href="images/Hero_Desktop.jpg"
+      media="(min-width: 961px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="images/Hero_Tablet.jpg"
+      media="(min-width: 577px) and (max-width: 960px)"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="images/Hero_Mobile.jpg"
+      media="(max-width: 576px)"
+    />
+
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -25,38 +55,19 @@
       })(window, document, "script", "dataLayer", "GTM-PKK35GL5");
     </script>
     <!-- End Google Tag Manager -->
-
-    <!-- Cookie Consent by FreePrivacyPolicy.com https://www.FreePrivacyPolicy.com -->
-    <script
-      type="text/javascript"
-      src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
-      charset="UTF-8"
-    ></script>
-    <script type="text/javascript" charset="UTF-8">
-      cookieconsent.run({
-        notice_banner_type: "simple",
-        consent_type: "express",
-        palette: "light",
-        language: "en",
-        page_load_consent_levels: ["strictly-necessary"],
-        notice_banner_reject_button_hide: false,
-        preferences_center_close_button_hide: false,
-        page_refresh_confirmation_buttons: false,
-        website_name: "Performance Course",
-      });
-    </script>
   </head>
 
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
+    <noscript>
+      <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-PKK35GL5"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
+      >
+      </iframe>
+    </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <header>
@@ -74,16 +85,45 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
-            <li class="menu-icon"><img src="images/menu_icon.png" /></li>
+            <li class="menu-icon">
+              <img
+                src="images/menu_icon.png"
+                alt="Menu"
+                width="24"
+                height="24"
+              />
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
     <section class="hero">
-      <img class="desktop" src="images/Hero_Desktop.jpg" />
-      <img class="mobile" src="images/Hero_Mobile.jpg" />
-      <img class="tablet" src="images/Hero_Tablet.jpg" />
+      <!-- Responsive images using picture element -->
+      <picture>
+        <source
+          media="(max-width: 576px)"
+          srcset="images/Hero_Mobile.jpg"
+          type="image/jpeg"
+        />
+        <source
+          media="(max-width: 960px)"
+          srcset="images/Hero_Tablet.jpg"
+          type="image/jpeg"
+        />
+        <img
+          src="images/Hero_Desktop.jpg"
+          alt="VR headset showcase"
+          width="1440"
+          height="600"
+          style="
+            filter: brightness(50%);
+            width: 100%;
+            height: auto;
+            display: block;
+          "
+        />
+      </picture>
 
       <div class="hero-content">
         <div class="container">
@@ -106,7 +146,13 @@
         <div class="container">
           <div class="product new">
             <div class="product-picture">
-              <img src="images/vr1.jpg" alt="product: Penom Case" />
+              <img
+                src="images/vr1.jpg"
+                alt="Apple VR Headset"
+                width="250"
+                height="200"
+                loading="lazy"
+              />
             </div>
             <div class="product-info">
               <h5 class="categories">Headsets, Apple</h5>
@@ -122,7 +168,10 @@
             <div class="product-picture">
               <img
                 src="images/vr2.jpg"
-                alt="product: Noise Cancelling Headphone"
+                alt="PlayStation VR Headset"
+                width="250"
+                height="200"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -139,7 +188,10 @@
             <div class="product-picture">
               <img
                 src="images/vr3.jpg"
-                alt="product: Canon Digital SLR EOS Rebel T6"
+                alt="Oculus VR Headset"
+                width="250"
+                height="200"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -218,7 +270,33 @@
 
     <a href="#" id="open_preferences_center">Update cookies preferences</a>
 
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/products.js"></script>
+    <!-- Scripts loaded with defer for better performance -->
+    <script type="text/javascript" src="/js/main.js" defer></script>
+    <script type="text/javascript" src="/js/products.js" defer></script>
+
+    <!-- Load cookie consent asynchronously after page load -->
+    <script>
+      window.addEventListener("load", function () {
+        const script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src =
+          "//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js";
+        script.charset = "UTF-8";
+        script.onload = function () {
+          cookieconsent.run({
+            notice_banner_type: "simple",
+            consent_type: "express",
+            palette: "light",
+            language: "en",
+            page_load_consent_levels: ["strictly-necessary"],
+            notice_banner_reject_button_hide: false,
+            preferences_center_close_button_hide: false,
+            page_refresh_confirmation_buttons: false,
+            website_name: "Performance Course",
+          });
+        };
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>
