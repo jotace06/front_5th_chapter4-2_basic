@@ -8,6 +8,9 @@ function displayProducts(products) {
   // Find the container where products will be displayed
   const container = document.querySelector("#all-products .container");
 
+  // Create DocumentFragment to minimize DOM manipulation
+  const fragment = document.createDocumentFragment();
+
   // Iterate over each product and create the HTML structure safely
   products.forEach((product) => {
     // Create the main product div
@@ -20,7 +23,8 @@ function displayProducts(products) {
     const img = document.createElement("img");
     img.src = product.image;
     img.alt = `product: ${product.title}`;
-    img.width = 250;
+    // Remove hardcoded width and height - let CSS handle sizing
+    img.loading = "lazy";
     pictureDiv.appendChild(img);
 
     // Create the product info div
@@ -54,14 +58,12 @@ function displayProducts(products) {
     productElement.appendChild(pictureDiv);
     productElement.appendChild(infoDiv);
 
-    // Append the new product element to the container
-    container.appendChild(productElement);
+    // Append to fragment instead of directly to DOM
+    fragment.appendChild(productElement);
   });
+
+  // Single DOM insertion to minimize reflow/repaint
+  container.appendChild(fragment);
 }
 
 loadProducts();
-
-// Simulate heavy operation. It could be a complex price calculation.
-for (let i = 0; i < 10000000; i++) {
-  const temp = Math.sqrt(i) * Math.sqrt(i);
-}
